@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ngx-adibro-reusable';
+  myval:any = '';
+  public items = ['abcd','bef','cgh'];
 }

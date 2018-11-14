@@ -121,6 +121,41 @@
           }
         }
       }
+    },
+    "ngx-adibro-components": {
+      "root": "projects/ngx-adibro-components",
+      "sourceRoot": "projects/ngx-adibro-components/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ngx-adibro-components/tsconfig.lib.json",
+            "project": "projects/ngx-adibro-components/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-adibro-components/src/test.ts",
+            "tsConfig": "projects/ngx-adibro-components/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-adibro-components/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngx-adibro-components/tsconfig.lib.json",
+              "projects/ngx-adibro-components/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "ngx-adibro-reusable"

@@ -1,0 +1,19 @@
+<input
+  type="text"
+  [(value)]="value"
+  [placeholder]="placeholder"
+  (change)="filterItems($event.target.value)"
+  (keyup)="filterItems($event.target.value)"
+  (focus)="filterItems($event.target.value)"
+  #inputElement
+/>
+<div class="float-div" *ngIf="show && cacheItems">
+  <ul
+    class="remove-bullets mainmenu"
+    *ngFor="let item of cacheItems; let idx = index"
+  >
+    <li class="hover-style" [style.width]='el.nativeElement.offsetWidth+"px"' (click)="selectValue(idx)">
+      <a>{{ item }}</a>
+    </li>
+  </ul>
+</div>
