@@ -2,6 +2,7 @@
 <ngx-adibro-autocomplete
   [items]="items"
   [(ngModel)]="myval"
+  (ngModelChange) = "changedVal($event)"
   placeholder="placeholder"
 ></ngx-adibro-autocomplete
 ><br />
