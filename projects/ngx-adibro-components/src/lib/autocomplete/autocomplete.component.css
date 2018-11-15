@@ -17,7 +17,7 @@ html, body {
 /* make ALL links (main and submenu) have padding and background color */
 .mainmenu a {
   display: block;
-  background-color: whitesmoke;
+  background-color: white;
   text-decoration: none;
   padding: 10px;
   color: #000;
@@ -25,7 +25,8 @@ html, body {
 
 /* add hover behaviour */
 .mainmenu a:hover {
-    background-color: #C5C5C5;
+    background-color: rebeccapurple;
+    color:white;
     cursor: pointer;
 }
 
@@ -66,11 +67,13 @@ html, body {
 .float-div {
     position:absolute;
     z-index:999;
-    border-radius: 3px;
     border: 1px solid rebeccapurple;
     box-shadow: 3px black;
+    border-radius: 5px;
+    max-height: 150px;
+    overflow:auto;
 }
 
-li {
-    border-bottom: 1px solid rebeccapurple; 
-}
+/* li {
+    border-bottom: 1px solid rebeccapurple;
+} */

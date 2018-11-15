@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
-import { NgxAdibroComponentsModule } from 'ngx-adibro-components';
+import { NgxAdibroComponentsModule } from 'projects/ngx-adibro-components/src/lib/ngx-adibro-components.module';
 
 @NgModule({
   declarations: [

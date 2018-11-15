@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges, forwardRef, Input, ViewChild, ElementRef } from "@angular/core";
+import { Component, OnInit, OnChanges, forwardRef, Input, ViewChild, ElementRef, HostListener, AfterViewInit } from "@angular/core";
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
 import { Placeholder } from "@angular/compiler/src/i18n/i18n_ast";
 
@@ -14,13 +14,15 @@ import { Placeholder } from "@angular/compiler/src/i18n/i18n_ast";
     }
   ]
 })
-export class AutocompleteComponent implements OnInit, ControlValueAccessor {
+export class AutocompleteComponent implements OnInit, AfterViewInit, ControlValueAccessor {
   @Input()
   items = ["abcd", "bghvgjhv", "c", "d"];
   @Input()
   placeholder;
   cacheItems;
   show;
+  scrollBarWidth: any;
+  elWidth: any;
   modelVal: any;
   @ViewChild('inputElement')
   inputEl: ElementRef;
@@ -49,11 +51,31 @@ export class AutocompleteComponent implements OnInit, ControlValueAccessor {
     this.value = value;
   }
 
+
+  @HostListener('document:click', ['$event'])
+  clickout(event) {
+    if(!this.el.nativeElement.contains( event.target )) {
+      this.show = false;
+  }
+}
+
+
   constructor(public el:ElementRef) {
     this.cacheItems = this.items;
+
   }
 
   ngOnInit() {}
+  ngAfterViewInit() {
+    let width = 0;
+    if (navigator.userAgent.indexOf("Firefox") > 0) {
+      width = 0;
+  } else {
+    width  = 18;
+  }
+    this.elWidth = this.el.nativeElement.offsetWidth - width;
+  }
+
 
   showPanel(bool) {
     this.show = bool;
@@ -78,6 +100,7 @@ export class AutocompleteComponent implements OnInit, ControlValueAccessor {
     this.value = this.cacheItems[idx];
     this.onChange(this.value);
     this.inputEl.nativeElement.value = this.value;
+    this.inputEl.nativeElement.focus();
     this.show = false;
   }
 }
