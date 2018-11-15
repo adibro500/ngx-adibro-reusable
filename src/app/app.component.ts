@@ -8,7 +8,7 @@ import { Component, OnChanges } from "@angular/core";
 export class AppComponent implements OnChanges{
   title = "ngx-adibro-reusable";
   myval: any = "";
-  public items = ["abcd", "bef", "cgh"];
+  public items = ["abcd", "bef", "cgh","afsdfs","bef","abcd","abcd","abcd","abcd","abcd"];
 
   changedVal($ev){
     console.log($ev);

@@ -12,7 +12,7 @@
     class="remove-bullets mainmenu"
     *ngFor="let item of cacheItems; let idx = index"
   >
-    <li class="hover-style" [style.width]='el.nativeElement.offsetWidth+"px"' (click)="selectValue(idx)">
+    <li class="hover-style" [style.width]='elWidth+"px"' (click)="selectValue(idx)">
       <a>{{ item }}</a>
     </li>
   </ul>
