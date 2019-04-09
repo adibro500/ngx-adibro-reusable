@@ -1,6 +1,5 @@
-import { Component, OnInit, OnChanges, forwardRef, Input, ViewChild, ElementRef, HostListener, AfterViewInit } from "@angular/core";
+import { Component, OnInit, forwardRef, Input, ViewChild, ElementRef, HostListener, AfterViewInit } from "@angular/core";
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
-import { Placeholder } from "@angular/compiler/src/i18n/i18n_ast";
 
 @Component({
   selector: "ngx-adibro-autocomplete",
@@ -14,21 +13,25 @@ import { Placeholder } from "@angular/compiler/src/i18n/i18n_ast";
     }
   ]
 })
+
 export class AutocompleteComponent implements OnInit, AfterViewInit, ControlValueAccessor {
+  
   @Input()
-  items = ["abcd", "bghvgjhv", "c", "d"];
+  items: string[] = [];
   @Input()
-  placeholder;
-  cacheItems;
-  show;
-  scrollBarWidth: any;
-  elWidth: any;
-  modelVal: any;
+  placeholder: string = "";
   @ViewChild('inputElement')
   inputEl: ElementRef;
   @Input("value") _value = "";
+
+  cacheItems: any[] = [];
+  show: boolean = false;
+  scrollBarWidth: any;
+  elWidth: any;
+  modelVal: any;
   onChange: any = () => {};
   onTouched: any = () => {};
+  
   get value() {
     return this._value;
   }
@@ -62,17 +65,17 @@ export class AutocompleteComponent implements OnInit, AfterViewInit, ControlValu
 
   constructor(public el:ElementRef) {
     this.cacheItems = this.items;
-
   }
 
   ngOnInit() {}
+  
   ngAfterViewInit() {
     let width = 0;
     if (navigator.userAgent.indexOf("Firefox") > 0) {
       width = 0;
-  } else {
+    } else {
     width  = 18;
-  }
+    }
     this.elWidth = this.el.nativeElement.offsetWidth - width;
   }
 
@@ -103,4 +106,6 @@ export class AutocompleteComponent implements OnInit, AfterViewInit, ControlValu
     this.inputEl.nativeElement.focus();
     this.show = false;
   }
+
 }
+

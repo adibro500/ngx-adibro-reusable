@@ -6,16 +6,14 @@ import { Component, OnChanges } from "@angular/core";
   styleUrls: ["./app.component.css"]
 })
 export class AppComponent implements OnChanges{
-  title = "ngx-adibro-reusable";
-  myval: any = "";
+
+  public myval: any = "";
   public items = ["abcd", "bef", "cgh","afsdfs","bef","abcd","abcd","abcd","abcd","abcd"];
 
   changedVal($ev){
     console.log($ev);
-
   }
 
-  ngOnChanges() {
-  }
+  ngOnChanges() { }
 
 }

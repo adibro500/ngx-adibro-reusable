@@ -3,7 +3,6 @@ import { AutocompleteComponent } from './autocomplete/autocomplete.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { FormsModule} from '@angular/forms';
-import { PopupComponent } from './popup/popup.component';
 
 @NgModule({
   imports: [
@@ -11,7 +10,7 @@ import { PopupComponent } from './popup/popup.component';
     CommonModule,
     FormsModule
   ],
-  declarations: [ AutocompleteComponent, PopupComponent],
+  declarations: [ AutocompleteComponent],
   exports: [ AutocompleteComponent]
 })
 export class NgxAdibroComponentsModule { }
